@@ -61,9 +61,9 @@ HAP协议有两类属性；**HAP用服务（services）**和**特征（charecter
 
 <u>*Hidden Services：*</u>隐藏服务则对应Service Naming中的内容，即那些不暴露给用户的服务，例如升级服务中仅仅暴露是否需要升级服务，而不会将升级服务暴露，所以升级服务设置为隐藏服务。同时，一个服务中是包涵多个charecteristics的，若这个服务中所有的charecteristics均为隐藏的charecteristics，则这个服务为隐藏服务。
 
-*<u>Linked Services：</u>*链接服务则增强了sevices对设备的描述能力，举个例子：一个service可以链接多个services，但是他自己是不能连接自己的，如果A链接了B，B链接了C，那么在使用services描述设备时，不能够默认为A链接了C，也就是说，A的链接服务只有B；如果A链接了C，那么A的链接服务中就有了B和C。苹果定义的service举例如下：
+*<u>Linked Services：</u>*链接服务则增强了sevices对设备的描述能力，举个例子：一个service可以链接多个services，但是他自己是不能连接自己的，如果A链接了B，B链接了C，那么在使用services描述设备时，不能够默认为A链接了C，也就是说，A的链接服务只有B；如果A链接了C，那么A的链接服务中就有了B和C。苹果定义的service举例如下：![image-20200815195653171](HAP(HomeKit Accessory Protocol)协议浅析.assets/image-20200815195653171.png)
 
-![image-20200815195653171](/Users/tianlongzhang/Library/Application Support/typora-user-images/image-20200815195653171.png)
+
 
 <u>***Charecteristics：***</u>
 
@@ -80,19 +80,19 @@ charecteristics为service最直接相关的操作数据或者行为的对象。�
 
 苹果定义的charecteristic举例如下：
 
-![image-20200815195907506](/Users/tianlongzhang/Library/Application Support/typora-user-images/image-20200815195907506.png)
+![image-20200815195907506](HAP(HomeKit Accessory Protocol)协议浅析.assets/image-20200815195907506.png)
 
 <u>***附加HAP服务：***</u>
 
 下表表示了苹果HomeKit协议
 
-![image-20200815194940259](/Users/tianlongzhang/Library/Application Support/typora-user-images/image-20200815194940259.png)
+![image-20200815194940259](HAP(HomeKit Accessory Protocol)协议浅析.assets/image-20200815194940259.png)
 
 5. ### 何为Profile？
 
 profile定义了合适的services和charecteristics来保持控制设备行为的一致性，可理解为一种品类或sku应当尽可能的有一种整体一致性的行为。在苹果HAP中，apple定义的profile有苹果定义的services和charecteristics来组成，一个自定义的profile则有自定义的charecterisitcs，苹果定义的charecteristics和自定义的services组成。可以看出，无论苹果定义的profile还是自定义的profile，都需要有苹果定义的charecteristics。这也就是说，接入设备必须使用苹果定义的charecteristics来暴露附加的功能，如果这个功能在苹果的定义中已有且可用的话。例如，温度计里面定义了一个当前温度的功能，如果苹果定义了这个charecteristics来描述时，我们首选苹果的这个功能，而不是把这个功能自定义为一个新的工能。我们分析一个例子，例如灯需要开和关这样的charecteristics来描述灯的开关状态，苹果对于此类的charecteristics定义的例子如下，那么我们在描述另一个相似设备时候，就需要复用下面的这个charecteristic，而不是自己重新定义一个charecteristic。
 
-![image-20200815200700917](/Users/tianlongzhang/Library/Application Support/typora-user-images/image-20200815200700917.png)
+![image-20200815200700917](HAP(HomeKit Accessory Protocol)协议浅析.assets/image-20200815200700917.png)
 
 6. ### 何为Roles？
 
