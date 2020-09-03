@@ -11,3 +11,4 @@ HAP-Java-learn
 =================
 
 1. 第一版，部分理解会写在代码中，后续会梳理文档。
+https://github.com/TianlongZhang0625s/HAP-Java-learn/blob/master/referenceDocs/HAP(HomeKit%20Accessory%20Protocol)%E5%8D%8F%E8%AE%AE%E6%B5%85%E6%9E%90.md#part-1-haphomekit-accessory-protocol%E5%8D%8F%E8%AE%AE%E6%B5%85%E6%9E%90
