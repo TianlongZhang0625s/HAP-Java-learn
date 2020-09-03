@@ -1,3 +1,7 @@
+---
+typora-root-url: ./HAP(HomeKit Accessory Protocol)协议浅析.assets
+---
+
 # Part 1: HAP(HomeKit Accessory Protocol)协议浅析
 
 ## 1. HomeKit Accessory Protocol协议简介：
