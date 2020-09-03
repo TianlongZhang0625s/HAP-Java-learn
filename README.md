@@ -14,4 +14,4 @@ note：
 推荐使用Java 8及以上
 
 1. 第一版，部分理解会写在代码中，后续会梳理文档。
-1. [Part 1: HAP 协议浅析及概念梳理（建议先看下理解，有帮助）](https://github.com/TianlongZhang0625s/HAP-Java-learn/blob/master/referenceDocs/HAP(HomeKit%20Accessory%20Protocol)%E5%8D%8F%E8%AE%AE%E6%B5%85%E6%9E%90.md#part-1-haphomekit-accessory-protocol%E5%8D%8F%E8%AE%AE%E6%B5%85%E6%9E%90)
+1. [Part 1: HAP 协议浅析及概念梳理（建议先看下理解，有帮助）](https://github.com/TianlongZhang0625s/HAP-Java-learn/blob/master/referenceDocs/HomeKit%20Accessory%20Protocol%E5%8D%8F%E8%AE%AE%E6%B5%85%E6%9E%90.md)
