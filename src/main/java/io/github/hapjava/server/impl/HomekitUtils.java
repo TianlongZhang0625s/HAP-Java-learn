@@ -9,8 +9,12 @@ import java.util.stream.Stream;
 import net.i2p.crypto.eddsa.spec.EdDSANamedCurveTable;
 import net.i2p.crypto.eddsa.spec.EdDSAParameterSpec;
 
+/**
+ * 改天验证下，看看到底生成什么东西
+ */
 public class HomekitUtils {
 
+  // 保证了每次生成的随机数的内存可见性，写优先于读
   private static volatile SecureRandom secureRandom;
 
   public static BigInteger generateSalt() {
