@@ -80,19 +80,19 @@ charecteristics为service最直接相关的操作数据或者行为的对象。�
 
 苹果定义的charecteristic举例如下：
 
-![image-20200815195907506](/../HomeKit Accessory Protocol协议浅析.assets/image-20200815195907506.png)
+![image-20200815195907506](https://github.com/TianlongZhang0625s/HAP-Java-learn/blob/master/referenceDocs/HomeKit%20Accessory%20Protocol%E5%8D%8F%E8%AE%AE%E6%B5%85%E6%9E%90.assets/image-20200815195907506.png)
 
 <u>***附加HAP服务：***</u>
 
 下表表示了苹果HomeKit协议
 
-![image-20200815194940259](/../HomeKit Accessory Protocol协议浅析.assets/image-20200815194940259.png)
+![image-20200815194940259](https://github.com/TianlongZhang0625s/HAP-Java-learn/blob/master/referenceDocs/HomeKit%20Accessory%20Protocol%E5%8D%8F%E8%AE%AE%E6%B5%85%E6%9E%90.assets/image-20200815194940259.png)
 
 5. ### 何为Profile？
 
 profile定义了合适的services和charecteristics来保持控制设备行为的一致性，可理解为一种品类或sku应当尽可能的有一种整体一致性的行为。在苹果HAP中，apple定义的profile有苹果定义的services和charecteristics来组成，一个自定义的profile则有自定义的charecterisitcs，苹果定义的charecteristics和自定义的services组成。可以看出，无论苹果定义的profile还是自定义的profile，都需要有苹果定义的charecteristics。这也就是说，接入设备必须使用苹果定义的charecteristics来暴露附加的功能，如果这个功能在苹果的定义中已有且可用的话。例如，温度计里面定义了一个当前温度的功能，如果苹果定义了这个charecteristics来描述时，我们首选苹果的这个功能，而不是把这个功能自定义为一个新的工能。我们分析一个例子，例如灯需要开和关这样的charecteristics来描述灯的开关状态，苹果对于此类的charecteristics定义的例子如下，那么我们在描述另一个相似设备时候，就需要复用下面的这个charecteristic，而不是自己重新定义一个charecteristic。
 
-![image-20200815200700917](/../HomeKit Accessory Protocol协议浅析.assets/image-20200815200700917.png)
+![image-20200815200700917](https://github.com/TianlongZhang0625s/HAP-Java-learn/blob/master/referenceDocs/HomeKit%20Accessory%20Protocol%E5%8D%8F%E8%AE%AE%E6%B5%85%E6%9E%90.assets/image-20200815200700917.png)
 
 6. ### 何为Roles？
 
