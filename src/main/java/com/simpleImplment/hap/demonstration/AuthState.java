@@ -10,6 +10,7 @@ import java.util.concurrent.ConcurrentMap;
  * 对此，考虑是否可以通过其他的序列化协议将这个对象进行序列化
  *
  */
+
 class AuthState implements Serializable {
     private static final long serialVersionUID = 1L;
     // 包含了用户验证及配对需要的PIN，mac，salt和privateKey

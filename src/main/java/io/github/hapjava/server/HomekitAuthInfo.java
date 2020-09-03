@@ -3,6 +3,7 @@ package io.github.hapjava.server;
 import java.math.BigInteger;
 
 
+
 /**
  * HomeKitAuthInfo 暴露了集中通用的验证行为的方法，作为一个暴露的接口，
  * 其通过暴露公用方法实现对公共行为操作的定义，这里面的内容必须自己实现，因为这里需要

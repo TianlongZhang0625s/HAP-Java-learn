@@ -11,6 +11,7 @@ import io.github.hapjava.server.impl.HomekitServer;
  * @author Andy Lintner
  */
 
+
 /**
  * 这里其实实现了HomeKit的HomeKitAuthInfo这个接口，这个接口定义了用户验证的公共的行为方式，只是
  * 用于测试，不可以用于实际的产品。毕竟mac地址（设备的网络接口的mac地址是固定），salt和私钥在进程应
