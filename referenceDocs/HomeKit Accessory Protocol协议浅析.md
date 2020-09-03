@@ -63,7 +63,7 @@ HAP协议有两类属性；**HAP用服务（services）**和**特征（charecter
 
 *<u>Linked Services：</u>*链接服务则增强了sevices对设备的描述能力，举个例子：一个service可以链接多个services，但是他自己是不能连接自己的，如果A链接了B，B链接了C，那么在使用services描述设备时，不能够默认为A链接了C，也就是说，A的链接服务只有B；如果A链接了C，那么A的链接服务中就有了B和C。苹果定义的service举例如下：
 
-![image-20200815195653171](/../HomeKit Accessory Protocol协议浅析.assets/image-20200815195653171.png)
+![image-20200815195653171](https://github.com/TianlongZhang0625s/HAP-Java-learn/blob/master/referenceDocs/HomeKit%20Accessory%20Protocol%E5%8D%8F%E8%AE%AE%E6%B5%85%E6%9E%90.assets/image-20200815195653171.png)
 
 <u>***Charecteristics：***</u>
 
