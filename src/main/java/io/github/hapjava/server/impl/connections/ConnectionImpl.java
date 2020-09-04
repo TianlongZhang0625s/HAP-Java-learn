@@ -19,6 +19,10 @@ import org.bouncycastle.util.Pack;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * ConnectionImpl具体实现HomekitClientConnection并提供通用服务
+ * 基础服务连接
+ */
 class ConnectionImpl implements HomekitClientConnection {
 
   private final HttpSession httpSession;

@@ -77,4 +77,22 @@ public class HomekitUtils {
     }
     return secureRandom;
   }
+
+
+
+//  测试结果
+//  public static void main (String[] args) throws Exception{
+//    System.out.println(generatePin());
+//    System.out.println(generateKey());
+//    System.out.println(generateMac());
+//    System.out.println(generateSalt());
+
+//    result:
+//
+//    336-09-866
+//    [B@16b98e56
+//    42:c8:67:d4:71:b8
+//    136121800102729827077603062431690611161
+
+//  }
 }

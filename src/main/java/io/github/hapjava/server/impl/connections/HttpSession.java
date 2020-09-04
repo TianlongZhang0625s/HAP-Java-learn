@@ -19,6 +19,9 @@ import java.net.InetAddress;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * HttpSession实现，在Http
+ */
 class HttpSession {
 
   private volatile PairingManager pairingManager;
