@@ -7,6 +7,7 @@ import java.util.Collections;
 import java.util.concurrent.CompletableFuture;
 
 /**
+ * 苹果待接入设备的接口
  * Base interface for all HomeKit Accessories. You can implement this interface directly, but most
  * users will prefer to use the more full featured interfaces in {@link
  * io.github.hapjava.accessories} which include a default implementation of {@link #getServices()}.
