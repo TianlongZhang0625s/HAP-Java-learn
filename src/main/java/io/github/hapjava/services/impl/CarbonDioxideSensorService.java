@@ -20,6 +20,7 @@ import io.github.hapjava.characteristics.impl.common.StatusTamperedCharacteristi
 public class CarbonDioxideSensorService extends AbstractServiceImpl {
 
   public CarbonDioxideSensorService(CarbonDioxideDetectedCharacteristic carbonDioxideDetected) {
+    // 初始化基类AbstractServiceImpl，下列序列号来源于HAP文档定义的uuid
     super("00000097-0000-1000-8000-0026BB765291");
     addCharacteristic(carbonDioxideDetected);
   }

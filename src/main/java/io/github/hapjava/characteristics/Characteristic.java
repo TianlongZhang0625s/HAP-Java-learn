@@ -6,40 +6,38 @@ import javax.json.JsonObjectBuilder;
 import javax.json.JsonValue;
 
 /**
- * Interface for the characteristics provided by a Service.
+ * 此可以理解为所有Characteristic的最抽象的描述，所有被抽象的Characteristic，均继承或者实现
+ * 这个最高级抽象的接口
  *
- * <p>Characteristics are the lowest level building block of the HomeKit Accessory Protocol. They
- * define variables that can be retrieved or set by the remote client. Most consumers of this
- * library will be better served by using one of the characteristic classes in {@link
- * io.github.hapjava.characteristics} when creating custom accessory types (the standard accessories
- * from {@link io.github.hapjava.accessories} already include the necessary characteristics),
- * instead of trying to implement the JSON formats directly.
+ * 需要知道的是，这些Characteristic是可以被远程client修改和查看的（主要是状态）。一般的，如果
+ * 实现一个自定义的accessory时，可以先考虑使用标准库（io.github.hapjava.characteristics）
+ * 里面的相近的Characteristic的具体类型进行实现，而不是自己直接去基于JSON格式去直接实现，除非
+ * 真的没有合适的，可按照现有库的形式，构建自定义的accessory接入的Characteristic。
  *
  * @author Andy Lintner
  */
 public interface Characteristic {
 
   /**
-   * Adds an attribute to the passed JsonObjectBuilder named "value" with the current value of the
-   * characteristic.
+   * 本质上为添加键值对
+   * JsonObjectBuilder add(String var1, JsonValue var2); from JsonObjectBuilder source code
    *
-   * @param characteristicBuilder the JsonObjectBuilder to add the value attribute to.
+   * @param characteristicBuilder 添加键值对的JsonObjectBuilder对象.
    */
   void supplyValue(JsonObjectBuilder characteristicBuilder);
 
   /**
-   * Creates the JSON representation of the characteristic, in accordance with the HomeKit Accessory
-   * Protocol.
+   * 构建JSON形式描述的Characteristic对象
    *
-   * @param iid The instance ID of the characteristic to be included in the serialization.
-   * @return the future completing with the resulting JSON.
+   * @param iid Characteristic的instance ID，在序列化时须加入此iid
+   * @return JSON格式描述Characteristic的完成的JSON object结果.
    */
   CompletableFuture<JsonObject> toJson(int iid);
 
   /**
-   * Invoked by the remote client, this updates the current value of the characteristic.
+   * 由远程客户端调用，调用后将更新Characteristic的值
    *
-   * @param jsonValue the JSON serialized value to set.
+   * @param jsonValue 要设置的JSON序列化后的值.
    */
   void setValue(JsonValue jsonValue);
 }

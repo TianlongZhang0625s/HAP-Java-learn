@@ -18,7 +18,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Base class for implementing {@link Characteristic}.
+ * 此为Characteristic的基本功能的实现，这种实现方式可类似参考AccessoryInformationService
+ * 的实现。
+ * 此基类定义了Characteristic抽象的共有的行为，继承后的子类可添加和复写父类的方法，实现子类特有
+ * 的行为。
  *
  * @author Andy Lintner
  */
@@ -38,8 +41,7 @@ public abstract class BaseCharacteristic<T> implements Characteristic, Eventable
   /**
    * Default constructor
    *
-   * @param type a string containing a UUID that indicates the type of characteristic. Apple defines
-   *     a set of these, however implementors can create their own as well.
+   * @param type 唯一识别Characteristic的 UUID. 苹果定义了一个Characteristic的集合，但是用户也可自己定义。
    * @param format a string indicating the value type, which must be a recognized type by the
    *     consuming device.
    * @param isWritable indicates whether the value can be changed.
@@ -61,6 +63,7 @@ public abstract class BaseCharacteristic<T> implements Characteristic, Eventable
     }
 
     this.type = type;
+    // shotType则为一个用$1替换后的短的tpye
     this.shortType = this.type.replaceAll("^0*([0-9a-fA-F]+)-0000-1000-8000-0026BB765291$", "$1");
     this.format = format;
     this.description = description;
