@@ -10,6 +10,7 @@ public enum AccessoryFlagsEnum implements CharacteristicEnum {
   NO_FLAGS(0),
   REQUIRES_ADDITIONAL_SETUP(1);
 
+  // 枚举类型保存在reverse字段中，mapping关系为Integer--> AccessoryFlagsEnum
   private static final Map<Integer, AccessoryFlagsEnum> reverse;
 
   static {

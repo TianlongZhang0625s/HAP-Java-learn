@@ -11,7 +11,7 @@ import javax.json.JsonValue;
 import javax.json.JsonValue.ValueType;
 
 /**
- * Characteristic that exposes a Boolean value.
+ * characteristic 为boolean类型的处理
  *
  * @author Andy Lintner
  */
@@ -21,23 +21,24 @@ public abstract class BooleanCharacteristic extends BaseCharacteristic<Boolean> 
   private final Optional<ExceptionalConsumer<Boolean>> setter;
 
   /**
-   * Default constructor
+   * 默认 constructor
    *
-   * @param type a string containing a UUID that indicates the type of characteristic. Apple defines
-   *     a set of these, however implementors can create their own as well.
-   * @param description a description of the characteristic to be passed to the consuming device.
-   * @param getter getter to retrieve the value
-   * @param setter setter to set value
-   * @param subscriber subscriber to subscribe to changes
-   * @param unsubscriber unsubscriber to unsubscribe from chnages
+   * @param type 可参考BaseCharecteristic的说明
+   * @param description 可参考BaseCharecteristic的说明
+   * @param getter 获取设备的值
+   * @param setter 设置设备的值
+   * @param subscriber 可参考BaseCharecteristic的说明
+   * @param unsubscriber 可参考BaseCharecteristic的说明
    */
   public BooleanCharacteristic(
       String type,
       String description,
+      // 需要了解，Optional，Supplier以及CompltableFuture的用法和实现
       Optional<Supplier<CompletableFuture<Boolean>>> getter,
       Optional<ExceptionalConsumer<Boolean>> setter,
       Optional<Consumer<HomekitCharacteristicChangeCallback>> subscriber,
       Optional<Runnable> unsubscriber) {
+//    初始化父类BaseCharecteristic
     super(
         type,
         "bool",
@@ -50,7 +51,9 @@ public abstract class BooleanCharacteristic extends BaseCharacteristic<Boolean> 
     this.setter = setter;
   }
 
-  /** {@inheritDoc} */
+  /** {@inheritDoc}
+   * Boolean类型对可BaseCharecteristic的convert的实现，可转换为boolean类型的对象
+   * */
   @Override
   protected Boolean convert(JsonValue jsonValue) {
     if (jsonValue.getValueType().equals(ValueType.NUMBER)) {
@@ -59,16 +62,19 @@ public abstract class BooleanCharacteristic extends BaseCharacteristic<Boolean> 
     return jsonValue.equals(JsonValue.TRUE);
   }
 
+  // 获取连接设备的Characteristic的boolean值
   @Override
   protected CompletableFuture<Boolean> getValue() {
     return getter.isPresent() ? getter.map(booleanGetter -> booleanGetter.get()).get() : null;
   }
 
+  // 设置值，从连接客户端设置，发送到设备，可参考BaseCharecteristic的说明
   @Override
   protected void setValue(Boolean value) throws Exception {
     if (setter.isPresent()) setter.get().accept(value);
   }
 
+  // 默认值，default为false
   /** {@inheritDoc} */
   @Override
   protected Boolean getDefault() {

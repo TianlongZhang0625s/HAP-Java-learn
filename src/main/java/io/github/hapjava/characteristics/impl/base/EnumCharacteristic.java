@@ -13,10 +13,8 @@ import javax.json.JsonObjectBuilder;
 import javax.json.JsonValue;
 
 /**
- * Characteristic that exposes an Enum value. Enums are represented as an Integer value in the
- * HomeKit protocol, and classes extending this one must handle the static mapping to an Integer
- * value.
- *
+ * 枚举类型的Characteristic, 本质上还是操作的整数值，是靠一个静态的map映射关系维持的
+ * 如果还不是很明白，可以参考 AccessoryFlagEnum
  * @author Andy Lintner
  */
 public abstract class EnumCharacteristic<T extends CharacteristicEnum>
@@ -29,18 +27,11 @@ public abstract class EnumCharacteristic<T extends CharacteristicEnum>
   /**
    * Default constructor
    *
-   * @param type a string containing a UUID that indicates the type of characteristic. Apple defines
-   *     a set of these, however implementors can create their own as well.
-   * @param description a description of the characteristic to be passed to the consuming device.
-   * @param maxValue the number of enum items.
-   * @param getter getter to retrieve the value
-   * @param setter setter to set value
-   * @param subscriber subscriber to subscribe to changes
-   * @param unsubscriber unsubscriber to unsubscribe from chnages
    */
   public EnumCharacteristic(
       String type,
       String description,
+      // 枚举的最大值
       int maxValue,
       Optional<Supplier<CompletableFuture<T>>> getter,
       Optional<ExceptionalConsumer<T>> setter,
@@ -54,6 +45,7 @@ public abstract class EnumCharacteristic<T extends CharacteristicEnum>
   }
 
   /** {@inheritDoc} */
+  // 基础类型BaseCharacteristic的抽象方法的实现
   @Override
   protected CompletableFuture<JsonObjectBuilder> makeBuilder(int iid) {
     return super.makeBuilder(iid)

@@ -7,6 +7,11 @@ import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
+/**
+ * 可以参考苹果HAP文档中关于battery的service的描述，里面包含了电池电量，电池充电状态
+ * 电池低电量提示等，这里的实现和HAP文档基本相似。
+ * 不过实现了required 类型的characteristic
+ */
 
 /** This characteristic describes the current level of the battery. */
 public class BatteryLevelCharacteristic extends IntegerCharacteristic

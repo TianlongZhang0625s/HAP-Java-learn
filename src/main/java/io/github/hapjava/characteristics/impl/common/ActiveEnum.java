@@ -5,7 +5,9 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-/** 0 ”Inactive” 1 ”Active” 2-255 ”Reserved” */
+/** 0 ”Inactive” 1 ”Active” 2-255 ”Reserved”
+ * 设备活跃和不活跃的枚举
+ * */
 public enum ActiveEnum implements CharacteristicEnum {
   INACTIVE(0),
   ACTIVE(1);

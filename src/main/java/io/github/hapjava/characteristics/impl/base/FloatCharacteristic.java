@@ -13,7 +13,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * A characteristic that provides a Float value type.
+ *
+ * 浮点数值的Characteristic，可参考HAP文档中关于此类型的描述
  *
  * @author Andy Lintner
  */
@@ -38,8 +39,8 @@ public abstract class FloatCharacteristic extends BaseCharacteristic<Double> {
    * @param maxValue the maximum supported value
    * @param minStep the smallest supported step. Values will be rounded to a multiple of this.
    * @param unit a description of the unit this characteristic supports.
-   * @param getter getter to retrieve the value
-   * @param setter setter to set value
+   * @param getter 获取当前值
+   * @param setter 连接的client设置新的值
    * @param subscriber subscriber to subscribe to changes
    * @param unsubscriber unsubscriber to unsubscribe from chnages
    */

@@ -16,6 +16,7 @@ import javax.json.JsonValue;
  */
 public class StaticStringCharacteristic extends BaseCharacteristic<String> {
 
+  // 注意，最大长度为255
   private static final int MAX_LEN = 255;
 
   private final Optional<Supplier<CompletableFuture<String>>> getter;

@@ -11,7 +11,8 @@ import javax.json.JsonObjectBuilder;
 import javax.json.JsonValue;
 
 /**
- * A characteristic that provides an Integer data type.
+ *
+ * Integer类型的Characteristic处理
  *
  * @author Andy Lintner
  */
@@ -81,6 +82,7 @@ public abstract class IntegerCharacteristic extends BaseCharacteristic<Integer> 
   }
 
   /** {@inheritDoc} */
+  // attention this： 这里返回默认值为最小值
   @Override
   protected Integer getDefault() {
     return minValue;
